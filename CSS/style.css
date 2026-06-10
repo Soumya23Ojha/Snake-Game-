@@ -63,3 +63,8 @@ h1 {
 #restart-btn:hover {
     transform: scale(1.05);
 }
+
+.snake {
+    background: #22c55e;
+    border-radius: 4px;
+}
