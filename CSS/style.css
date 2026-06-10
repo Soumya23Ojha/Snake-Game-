@@ -68,3 +68,48 @@ h1 {
     background: #22c55e;
     border-radius: 4px;
 }
+
+#game-over-screen{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 8px;
+
+    z-index: 100;
+}
+
+.hidden{
+    display: none !important;
+}
+
+#play-again-btn{
+    margin-top: 20px;
+    padding: 12px 24px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #22c55e;
+    color: white;
+
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.game-wrapper{
+    position: relative;
+    width: 500px;
+    height: 500px;
+}

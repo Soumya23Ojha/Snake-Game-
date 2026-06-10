@@ -16,7 +16,16 @@
             Score: <span id="score">0</span>
         </div>
 
-        <div id="game-board"></div>
+        <div class="game-wrapper">
+
+            <div id="game-board"></div>
+
+            <div id="game-over-screen" class="hidden">
+                <h2>💀 Game Over</h2>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <button id="play-again-btn">Play Again</button>
+            </div>
+        </div>
 
         <button id="restart-btn">Restart Game</button>
     </div>
