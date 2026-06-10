@@ -13,6 +13,11 @@ let snake = [
 
 let direction = "right";
 
+let food = {
+    x: 5,
+    y: 5
+};
+
 // Create Board
 function createBoard() {
     board.innerHTML = "";
@@ -23,6 +28,34 @@ function createBoard() {
         board.appendChild(cell);
     }
 }
+
+// Generate Food
+function generateFood() {
+
+    let validPosition = false;
+
+    while (!validPosition) {
+
+        food = {
+            x: Math.floor(Math.random() * GRID_SIZE),
+            y: Math.floor(Math.random() * GRID_SIZE)
+        };
+
+        validPosition = true;
+
+        for (let segment of snake) {
+
+            if (
+                segment.x === food.x &&
+                segment.y === food.y
+            ) {
+                validPosition = false;
+                break;
+            }
+        }
+    }
+}
+
 
 // Draw Snake
 function drawSnake() {
@@ -37,9 +70,22 @@ function drawSnake() {
     });
 }
 
+// Draw Food
+function drawFood() {
+
+    const cells = document.querySelectorAll(".cell");
+
+    const index = food.y * GRID_SIZE + food.x;
+
+    if (index >= 0 && index < cells.length) {
+        cells[index].classList.add("food");
+    }
+}
+
 // Render Game
 function render() {
     createBoard();
+    drawFood();
     drawSnake();
 }
 
@@ -97,10 +143,26 @@ function moveSnake() {
     }
 
     snake.unshift(head);
-    snake.pop();
+
+    if (
+        head.x === food.x &&
+        head.y === food.y
+    ) {
+
+        score++;
+
+        document.getElementById("score").textContent = score;
+
+        generateFood();
+
+    } else {
+
+        snake.pop();
+    }
 
     render();
-}
+    }
+
 
 // Keyboard Controls
 document.addEventListener("keydown", (event) => {
@@ -175,6 +237,7 @@ if (playAgainBtn) {
 }
 
 // Start Game
+generateFood();
 render();
 
 setInterval(moveSnake, 300);
