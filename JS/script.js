@@ -142,6 +142,26 @@ function moveSnake() {
         return;
     }
 
+    // Self Collision
+    for (let segment of snake) {
+
+        if (
+            head.x === segment.x &&
+            head.y === segment.y
+        ) {
+
+            gameOver = true;
+
+            document.getElementById("final-score")
+                .textContent = score;
+
+            document.getElementById("game-over-screen")
+                .classList.remove("hidden");
+
+            return;
+        }
+    }
+
     snake.unshift(head);
 
     if (
