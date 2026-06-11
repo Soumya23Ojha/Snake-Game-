@@ -4,6 +4,7 @@ const GRID_SIZE = 20;
 
 let gameOver = false;
 let score = 0;
+let gameInterval = null;
 
 let snake = [
     { x: 10, y: 10 },
@@ -218,6 +219,8 @@ document.addEventListener("keydown", (event) => {
 // Restart Function
 function restartGame() {
 
+    clearInterval(gameInterval);
+
     snake = [
         { x: 10, y: 10 },
         { x: 9, y: 10 },
@@ -237,7 +240,23 @@ function restartGame() {
         gameOverScreen.classList.add("hidden");
     }
 
+    generateFood();
     render();
+
+    gameInterval = setInterval(moveSnake, 300);
+}
+
+//strat game
+function startGame() {
+
+    document
+        .getElementById("start-screen")
+        .style.display = "none";
+
+    gameInterval = setInterval(
+        moveSnake,
+        300
+    );
 }
 
 // Restart Button
@@ -256,8 +275,19 @@ if (playAgainBtn) {
     playAgainBtn.addEventListener("click", restartGame);
 }
 
+//start button 
+const startBtn =
+    document.getElementById("start-btn");
+
+if (startBtn) {
+    startBtn.addEventListener(
+        "click",
+        startGame
+    );
+}
+
 // Start Game
 generateFood();
 render();
 
-setInterval(moveSnake, 300);
+// setInterval(moveSnake, 300);
