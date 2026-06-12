@@ -42,8 +42,8 @@ h1 {
 }
 
 #game-board {
-    width: 500px;
-    height: 500px;
+    width: min(500px, 90vw);
+    height: min(500px, 90vw);
 
     display: grid;
     grid-template-columns: repeat(20, 1fr);
@@ -127,8 +127,9 @@ h1 {
 
 .game-wrapper{
     position: relative;
-    width: 500px;
-    height: 500px;
+
+    width: min(500px, 90vw);
+    height: min(500px, 90vw);
 }
 
     /* game start style */
@@ -247,6 +248,7 @@ h1 {
 .footer-column{
     display:flex;
     flex-direction:column;
+    align-items:center;
 }
 
 .footer-column h3{
@@ -369,4 +371,37 @@ h1 {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+@media (max-width: 768px){
+
+    h1{
+        font-size: 2.5rem;
+    }
+
+    .score-container{
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    #start-screen h2{
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    #restart-btn,
+    #start-btn,
+    #play-again-btn{
+        width: 200px;
+    }
+
+    .footer{
+        margin-top: 50px;
+    }
+
+    .footer-container{
+        padding: 40px 20px;
+    }
+
 }
