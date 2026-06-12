@@ -9,11 +9,18 @@ body {
     color: white;
     font-family: Arial, sans-serif;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
 }
 
 .container {
@@ -158,4 +165,152 @@ h1 {
 
 #start-btn:hover {
     transform: scale(1.05);
+}
+
+.footer {
+    width: 100%;
+    margin-top: 60px;
+
+    background: rgba(8, 15, 35, 0.95);
+
+    border: 2px solid #22c55e;
+    border-bottom: none;
+
+    border-radius: 25px 25px 0 0;
+
+    box-shadow:
+        0 0 20px rgba(34, 197, 94, 0.2),
+        inset 0 0 20px rgba(34, 197, 94, 0.05);
+
+    backdrop-filter: blur(10px);
+}
+
+.footer-container {
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 40px;
+}
+
+.footer-section h2 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.footer-section h3 {
+    color: #22c55e;
+    margin-bottom: 20px;
+}
+
+.footer-section p {
+    color: #b6bcc8;
+    line-height: 1.7;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    color: #e5e7eb;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-section ul li:hover {
+    color: #22c55e;
+    transform: translateX(5px);
+}
+
+.footer-logo {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    background: rgba(34, 197, 94, 0.1);
+
+    border: 1px solid rgba(34, 197, 94, 0.3);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+}
+
+.github-btn {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 14px 28px;
+
+    border: 2px solid #22c55e;
+
+    border-radius: 12px;
+
+    color: #22c55e;
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.github-btn:hover {
+    background: #22c55e;
+    color: #081323;
+
+    box-shadow: 0 0 20px #22c55e;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(34, 197, 94, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    padding: 20px;
+
+    color: #9ca3af;
+}
+
+.footer-bottom span {
+    color: #22c55e;
+    font-size: 22px;
+}
+
+.copyright {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin: 0 auto 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
